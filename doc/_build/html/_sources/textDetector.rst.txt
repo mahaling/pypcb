@@ -1,4 +1,4 @@
-pypcb\.textDetector package
+textDetector package
 ===========================
 
 Subpackages
@@ -6,79 +6,79 @@ Subpackages
 
 .. toctree::
 
-    pypcb.textDetector.layers
+    textDetector.layers
 
 Submodules
 ----------
 
-pypcb\.textDetector\.anchor module
+textDetector\.anchor module
 ----------------------------------
 
-.. automodule:: pypcb.textDetector.anchor
+.. automodule:: textDetector.anchor
     :members:
     :undoc-members:
     :show-inheritance:
 
-pypcb\.textDetector\.config module
+textDetector\.config module
 ----------------------------------
 
-.. automodule:: pypcb.textDetector.config
+.. automodule:: textDetector.config
     :members:
     :undoc-members:
     :show-inheritance:
 
-pypcb\.textDetector\.cpu\_nms module
+textDetector\.cpu\_nms module
 ------------------------------------
 
-.. automodule:: pypcb.textDetector.cpu_nms
+.. automodule:: textDetector.cpu_nms
     :members:
     :undoc-members:
     :show-inheritance:
 
-pypcb\.textDetector\.detectors module
+textDetector\.detectors module
 -------------------------------------
 
-.. automodule:: pypcb.textDetector.detectors
+.. automodule:: textDetector.detectors
     :members:
     :undoc-members:
     :show-inheritance:
 
-pypcb\.textDetector\.other module
+textDetector\.other module
 ---------------------------------
 
-.. automodule:: pypcb.textDetector.other
+.. automodule:: textDetector.other
     :members:
     :undoc-members:
     :show-inheritance:
 
-pypcb\.textDetector\.textRecognizer module
+textDetector\.textRecognizer module
 ------------------------------------------
 
-.. automodule:: pypcb.textDetector.textRecognizer
+.. automodule:: textDetector.textRecognizer
     :members:
     :undoc-members:
     :show-inheritance:
 
-pypcb\.textDetector\.text\_proposal\_connector module
+textDetector\.text\_proposal\_connector module
 -----------------------------------------------------
 
-.. automodule:: pypcb.textDetector.text_proposal_connector
+.. automodule:: textDetector.text_proposal_connector
     :members:
     :undoc-members:
     :show-inheritance:
 
-pypcb\.textDetector\.text\_proposal\_graph\_builder module
+textDetector\.text\_proposal\_graph\_builder module
 ----------------------------------------------------------
 
-.. automodule:: pypcb.textDetector.text_proposal_graph_builder
+.. automodule:: textDetector.text_proposal_graph_builder
     :members:
     :undoc-members:
     :show-inheritance:
 
-pypcb\.textDetector\.timer module
+textDetector\.timer module
 ---------------------------------
 
-.. automodule:: pypcb.textDetector.timer
+.. automodule:: textDetector.timer
     :members:
     :undoc-members:
     :show-inheritance:
@@ -87,7 +87,7 @@ pypcb\.textDetector\.timer module
 Module contents
 ---------------
 
-.. automodule:: pypcb.textDetector
+.. automodule:: textDetector
     :members:
     :undoc-members:
     :show-inheritance:

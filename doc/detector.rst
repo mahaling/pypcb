@@ -1,53 +1,53 @@
-pypcb\.detector package
+detector package
 =======================
 
 Submodules
 ----------
 
-pypcb\.detector\.Clustering module
+detector\.Clustering module
 ----------------------------------
 
-.. automodule:: pypcb.detector.Clustering
+.. automodule:: detector.Clustering
     :members:
     :undoc-members:
     :show-inheritance:
 
-pypcb\.detector\.componentDetector module
+detector\.componentDetector module
 -----------------------------------------
 
-.. automodule:: pypcb.detector.componentDetector
+.. automodule:: detector.componentDetector
     :members:
     :undoc-members:
     :show-inheritance:
 
-pypcb\.detector\.config module
+detector\.config module
 ------------------------------
 
-.. automodule:: pypcb.detector.config
+.. automodule:: detector.config
     :members:
     :undoc-members:
     :show-inheritance:
 
-pypcb\.detector\.helperModules module
+detector\.helperModules module
 -------------------------------------
 
-.. automodule:: pypcb.detector.helperModules
+.. automodule:: detector.helperModules
     :members:
     :undoc-members:
     :show-inheritance:
 
-pypcb\.detector\.nms module
+detector\.nms module
 ---------------------------
 
-.. automodule:: pypcb.detector.nms
+.. automodule:: detector.nms
     :members:
     :undoc-members:
     :show-inheritance:
 
-pypcb\.detector\.windowExtractor module
+detector\.windowExtractor module
 ---------------------------------------
 
-.. automodule:: pypcb.detector.windowExtractor
+.. automodule:: detector.windowExtractor
     :members:
     :undoc-members:
     :show-inheritance:
@@ -56,7 +56,7 @@ pypcb\.detector\.windowExtractor module
 Module contents
 ---------------
 
-.. automodule:: pypcb.detector
+.. automodule:: detector
     :members:
     :undoc-members:
     :show-inheritance:
