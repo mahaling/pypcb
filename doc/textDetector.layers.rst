@@ -1,13 +1,13 @@
-pypcb\.textDetector\.layers package
+textDetector\.layers package
 ===================================
 
 Submodules
 ----------
 
-pypcb\.textDetector\.layers\.text\_proposal\_layer module
+textDetector\.layers\.text\_proposal\_layer module
 ---------------------------------------------------------
 
-.. automodule:: pypcb.textDetector.layers.text_proposal_layer
+.. automodule:: textDetector.layers.text_proposal_layer
     :members:
     :undoc-members:
     :show-inheritance:
@@ -16,7 +16,7 @@ pypcb\.textDetector\.layers\.text\_proposal\_layer module
 Module contents
 ---------------
 
-.. automodule:: pypcb.textDetector.layers
+.. automodule:: textDetector.layers
     :members:
     :undoc-members:
     :show-inheritance:

@@ -20,6 +20,7 @@ from textDetector.config import Config as cfg
 from detector import componentDetector as cd
 from detector.helperModules import *
 
+
 if '/usr/local/caffe/python' in sys.path:
     sys.path.remove('/usr/local/caffe/python')
 
@@ -49,7 +50,7 @@ except ImportError:
     from PyQt4.QtGui import *
     from PyQt4.QtCore import *
 
-#import resources
+import resources
 
 try:
     from libs.lib import struct, newAction, newIcon, addActions, fmtShortcut
@@ -1855,6 +1856,28 @@ class DetectionDialog(QDialog):
 
         return shapes
 
+    def _loadLabels(self, component, boxes):
+        """
+        Put the predictions in the format that labelImg can read.
+        :param component: The component to identify.
+        :param boxes: The boxes 
+        :return: Shapes from the component detector module.
+        """
+        shapes = []
+        for i in range(len(list(boxes[0]))):
+            points = []
+            leftx = boxes[0][i][0]
+            topy = boxes[0][i][1]
+            rightx = boxes[0][i][2]
+            bottomy = boxes[0][i][3]
+            points.append((leftx, topy))
+            points.append((rightx, topy))  # topright
+            points.append((rightx, bottomy))  # bottomright
+            points.append((leftx, bottomy))  # bottomleft
+            shapes.append([component + str(i), points, None, None])
+
+        return shapes
+
     def getShapes(self):
         """
         :return: The shapes. 
@@ -1874,7 +1897,7 @@ class DetectionDialog(QDialog):
         if len(self.modelThread.res) > 0:
             [self.shapes.append(box) for box in self._loadPredictions("resistor", self.modelThread.res)]
         if len(self.modelThread.labels) > 0:
-            [self.shapes.append(box) for box in self._loadPredictions("label", self.modelThread.labels)]
+            [self.shapes.append(box) for box in self._loadLabels("label", self.modelThread.labels)]
 
         self.accept()
 
@@ -1925,7 +1948,6 @@ class TaskThread(QRunnable):
         if self.components[1]:
             detector = cd.componentDetector("capacitor", "gpu")
             self.caps = detector.detectfast(self.filePath, minSize)
-            print(self.caps)
         if self.components[2]:
             detector = cd.componentDetector("resistor", "gpu")
             self.res = detector.detectfast(self.filePath, minSize)
