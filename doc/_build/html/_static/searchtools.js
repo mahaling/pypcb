@@ -2,24 +2,15 @@
  * searchtools.js_t
  * ~~~~~~~~~~~~~~~~
  *
-<<<<<<< HEAD
  * Sphinx JavaScript utilities for the full-text search.
  *
  * :copyright: Copyright 2007-2017 by the Sphinx team, see AUTHORS.
-=======
- * Sphinx JavaScript utilties for the full-text search.
- *
- * :copyright: Copyright 2007-2015 by the Sphinx team, see AUTHORS.
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
  * :license: BSD, see LICENSE for details.
  *
  */
 
 
-<<<<<<< HEAD
 /* Non-minified version JS is _stemmer.js if file is provided */ 
-=======
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
 /**
  * Porter Stemmer
  */
@@ -235,7 +226,6 @@ var Scorer = {
 };
 
 
-<<<<<<< HEAD
 
 
 
@@ -336,8 +326,6 @@ function splitQuery(query) {
 
 
 
-=======
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
 /**
  * Search Module
  */
@@ -436,11 +424,7 @@ var Search = {
     var searchterms = [];
     var excluded = [];
     var hlterms = [];
-<<<<<<< HEAD
     var tmp = splitQuery(query);
-=======
-    var tmp = query.split(/\s+/);
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
     var objectterms = [];
     for (i = 0; i < tmp.length; i++) {
       if (tmp[i] !== "") {
@@ -454,13 +438,10 @@ var Search = {
       }
       // stem the word
       var word = stemmer.stemWord(tmp[i].toLowerCase());
-<<<<<<< HEAD
       // prevent stemmer from cutting word smaller than two chars
       if(word.length < 3 && tmp[i].length >= 3) {
         word = tmp[i];
       }
-=======
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
       var toAppend;
       // select the correct list
       if (word[0] == '-') {
@@ -497,12 +478,7 @@ var Search = {
     }
 
     // lookup as search terms in fulltext
-<<<<<<< HEAD
     results = results.concat(this.performTermsSearch(searchterms, excluded, terms, titleterms));
-=======
-    results = results.concat(this.performTermsSearch(searchterms, excluded, terms, Scorer.term))
-                     .concat(this.performTermsSearch(searchterms, excluded, titleterms, Scorer.title));
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
 
     // let the scorer override scores with a custom scoring function
     if (Scorer.score) {
@@ -563,12 +539,8 @@ var Search = {
             displayNextItem();
           });
         } else if (DOCUMENTATION_OPTIONS.HAS_SOURCE) {
-<<<<<<< HEAD
           var suffix = DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX;
           $.ajax({url: DOCUMENTATION_OPTIONS.URL_ROOT + '_sources/' + item[5] + (item[5].slice(-suffix.length) === suffix ? '' : suffix),
-=======
-          $.ajax({url: DOCUMENTATION_OPTIONS.URL_ROOT + '_sources/' + item[0] + '.txt',
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
                   dataType: "text",
                   complete: function(jqxhr, textstatus) {
                     var data = jqxhr.responseText;
@@ -607,10 +579,7 @@ var Search = {
    */
   performObjectSearch : function(object, otherterms) {
     var filenames = this._index.filenames;
-<<<<<<< HEAD
     var docnames = this._index.docnames;
-=======
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
     var objects = this._index.objects;
     var objnames = this._index.objnames;
     var titles = this._index.titles;
@@ -664,11 +633,7 @@ var Search = {
           } else {
             score += Scorer.objPrioDefault;
           }
-<<<<<<< HEAD
           results.push([docnames[match[0]], fullname, '#'+anchor, descr, score, filenames[match[0]]]);
-=======
-          results.push([filenames[match[0]], fullname, '#'+anchor, descr, score]);
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
         }
       }
     }
@@ -679,7 +644,6 @@ var Search = {
   /**
    * search for full-text terms in the index
    */
-<<<<<<< HEAD
   performTermsSearch : function(searchterms, excluded, terms, titleterms) {
     var docnames = this._index.docnames;
     var filenames = this._index.filenames;
@@ -688,20 +652,11 @@ var Search = {
     var i, j, file;
     var fileMap = {};
     var scoreMap = {};
-=======
-  performTermsSearch : function(searchterms, excluded, terms, score) {
-    var filenames = this._index.filenames;
-    var titles = this._index.titles;
-
-    var i, j, file, files;
-    var fileMap = {};
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
     var results = [];
 
     // perform the search on the required terms
     for (i = 0; i < searchterms.length; i++) {
       var word = searchterms[i];
-<<<<<<< HEAD
       var files = [];
       var _o = [
         {files: terms[word], score: Scorer.term},
@@ -731,14 +686,6 @@ var Search = {
         }
       });
 
-=======
-      // no match but word was a required one
-      if ((files = terms[word]) === undefined)
-        break;
-      if (files.length === undefined) {
-        files = [files];
-      }
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
       // create the mapping
       for (j = 0; j < files.length; j++) {
         file = files[j];
@@ -760,13 +707,9 @@ var Search = {
       // ensure that none of the excluded terms is in the search result
       for (i = 0; i < excluded.length; i++) {
         if (terms[excluded[i]] == file ||
-<<<<<<< HEAD
             titleterms[excluded[i]] == file ||
             $u.contains(terms[excluded[i]] || [], file) ||
             $u.contains(titleterms[excluded[i]] || [], file)) {
-=======
-          $u.contains(terms[excluded[i]] || [], file)) {
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
           valid = false;
           break;
         }
@@ -774,14 +717,10 @@ var Search = {
 
       // if we have still a valid result we can add it to the result list
       if (valid) {
-<<<<<<< HEAD
         // select one (max) score for the file.
         // for better ranking, we should calculate ranking by using words statistics like basic tf-idf...
         var score = $u.max($u.map(fileMap[file], function(w){return scoreMap[file][w]}));
         results.push([docnames[file], titles[file], '', null, score, filenames[file]]);
-=======
-        results.push([filenames[file], titles[file], '', null, score]);
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
       }
     }
     return results;
@@ -791,11 +730,7 @@ var Search = {
    * helper function to return a node containing the
    * search summary for a given text. keywords is a list
    * of stemmed words, hlwords is the list of normal, unstemmed
-<<<<<<< HEAD
    * words. the first one is used to find the occurrence, the
-=======
-   * words. the first one is used to find the occurance, the
->>>>>>> a9b40e05415291bcbe2ec0d6c15599b0bb2eed8f
    * latter for highlighting it.
    */
   makeSearchSummary : function(text, keywords, hlwords) {
