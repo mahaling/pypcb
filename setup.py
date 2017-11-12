@@ -7,7 +7,7 @@ datadir = 'detector/models'
 datafiles = [(d, [os.path.join(d,f) for f in files])
     for d, folders, files in os.walk(datadir)]
 
-with open('requirements.txt', 'r') as f:
+with open('./requirements.txt', 'r') as f:
     required = f.read().splitlines()
 
 cpuNMS = Extension('cpu_nms',
