@@ -229,7 +229,7 @@ def drawBoundingBoxes(img, boxes, title):
     plt.show()
 
 def loadNet(deployProto, fullConvProto, caffeModel, mode='CPU'):
-    if mode == "GPU":
+    if mode == "GPU" or mode == "gpu":
         caffe.set_mode_gpu()
     else:
         caffe.set_mode_cpu()

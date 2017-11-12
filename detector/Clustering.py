@@ -45,7 +45,8 @@ def ClusterBoundingBoxes(boxes):
 
     for i, b in enumerate(fboxes):
         nodex = list(ridx.intersection((b[0], b[1], b[2], b[3])))
-        nodex.remove(i)
+        if len(nodex) > 1:
+            nodex.remove(i)
         [G.add_edge(i, node) for node in nodex]
 
     Gc = nx.connected_component_subgraphs(G)
