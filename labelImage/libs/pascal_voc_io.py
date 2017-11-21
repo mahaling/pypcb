@@ -66,8 +66,6 @@ class PascalVocWriter:
         else:
             depth.text = '1'
 
-        segmented = SubElement(top, 'segmented')
-        segmented.text = '0'
         return top
 
     def addBndBox(self, xmin, ymin, xmax, ymax, name):
@@ -92,15 +90,6 @@ class PascalVocWriter:
             except NameError:
                 # Py3: NameError: name 'unicode' is not defined
                 name.text = each_object['name']
-            pose = SubElement(object_item, 'pose')
-            pose.text = "Unspecified"
-            truncated = SubElement(object_item, 'truncated')
-            if int(each_object['ymax']) == int(self.imgSize[0]) or (int(each_object['ymin'])== 1):
-                truncated.text = "1" # max == height or min
-            elif (int(each_object['xmax'])==int(self.imgSize[1])) or (int(each_object['xmin'])== 1):
-                truncated.text = "1" # max == width or min
-            else:
-                truncated.text = "0"
             bndbox = SubElement(object_item, 'bndbox')
             xmin = SubElement(bndbox, 'xmin')
             xmin.text = str(each_object['xmin'])
