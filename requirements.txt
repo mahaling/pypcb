@@ -1,0 +1,13 @@
+numpy
+networkx
+jupyter
+matplotlib
+pillow
+opencv-contrib-python
+opencv-python
+argparse
+scikit-image
+sklearn
+imutils
+rtree
+wget
