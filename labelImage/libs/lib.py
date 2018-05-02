@@ -1,10 +1,23 @@
+"""
+This module contains helper modules.
+"""
+
 from math import sqrt
 
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
+try:
+    from PyQt5.QtGui import *
+    from PyQt5.QtCore import *
+    from PyQt5.QtWidgets import *
+except ImportError:
+    from PyQt4.QtGui import *
+    from PyQt4.QtCore import *
 
 
 def newIcon(icon):
+    """
+    :param icon: An icon
+    :return: Return the QIcon
+    """
     return QIcon(':/' + icon)
 
 def newButton(text, icon=None, slot=None):
@@ -38,6 +51,9 @@ def newAction(parent, text, slot=None, shortcut=None, icon=None,
 
 
 def addActions(widget, actions):
+    """
+    Setup the actions onto the given widget.
+    """
     for action in actions:
         if action is None:
             widget.addSeparator()
